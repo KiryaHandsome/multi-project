@@ -1,0 +1,12 @@
+plugins {
+    id 'application'
+    id 'java'
+}
+
+application {
+    mainClass = 'ru.clevertec.App'
+}
+
+dependencies {
+    implementation project(':core')
+}
