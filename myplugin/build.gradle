@@ -1,0 +1,38 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+group 'ru.clevertec'
+version '1.0-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+gradlePlugin {
+    plugins {
+        myPlugin {
+            id = 'handsomeplugin'
+            implementationClass = 'ru.clevertec.MyPlugin'
+        }
+    }
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
