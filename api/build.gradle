@@ -1,12 +1,23 @@
+buildscript {
+    dependencies {
+        classpath 'ru.clevertec:handsomeplugin:1.0-SNAPSHOT'
+    }
+}
+
 plugins {
     id 'application'
     id 'java'
+    id 'handsomeplugin' version '1.0-SNAPSHOT'
+}
+
+//execute custom task from my plugin
+tasks.run.dependsOn(timeTask)
+
+dependencies {
+    implementation project(':core')
 }
 
 application {
     mainClass = 'ru.clevertec.App'
 }
 
-dependencies {
-    implementation project(':core')
-}
